@@ -13,12 +13,12 @@ model Users {
   nome        String
   email       String   @unique
   senha       String
-  cpf         Int      @unique
-  celular     Int
+  cpf         String   @unique
+  celular     String
   endereco    String
   bairro      String
   cidade      String
-  cep         Int
+  cep         String
   complemento String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
