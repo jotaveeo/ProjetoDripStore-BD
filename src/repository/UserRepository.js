@@ -19,6 +19,7 @@ class UserRepository {
           complemento: body.complemento,
         },
       });
+      console.log("aqui é o userrepository: ", createResult);
       return createResult;
     } catch (error) {
       return error;
@@ -30,6 +31,19 @@ class UserRepository {
     try {
       const dataAll = await prisma.users.findMany();
       return dataAll;
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async getUnique(body) {
+    try {
+      const data = await prisma.users.findUnique({
+        where: {
+          email: body.email,
+        },
+      });
+      return data;
     } catch (error) {
       return error;
     }
