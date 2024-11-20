@@ -4,10 +4,18 @@ CREATE TABLE `Users` (
     `nome` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `senha` VARCHAR(191) NOT NULL,
+    `cpf` INTEGER NOT NULL,
+    `celular` INTEGER NOT NULL,
+    `endereco` VARCHAR(191) NOT NULL,
+    `bairro` VARCHAR(191) NOT NULL,
+    `cidade` VARCHAR(191) NOT NULL,
+    `cep` INTEGER NOT NULL,
+    `complemento` VARCHAR(191) NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `Users_email_key`(`email`),
+    UNIQUE INDEX `Users_cpf_key`(`cpf`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

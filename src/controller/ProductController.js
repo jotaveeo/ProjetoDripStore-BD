@@ -5,9 +5,8 @@ class ProductController {
     try {
       const data = await ProductRepository.getAll();
       response.status(200).json(data);
-    }
-    catch (error) {
-      response.status(400).json({ error: error.message });
+    } catch (error) {
+      response.status(400).json(error);
     }
   }
 }
