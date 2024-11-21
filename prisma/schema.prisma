@@ -13,7 +13,7 @@ model Users {
   nome        String
   email       String   @unique
   senha       String
-  cpf         Int   @unique
+  cpf         Int      @unique
   celular     Int
   endereco    String
   bairro      String
@@ -22,6 +22,16 @@ model Users {
   complemento String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model Cartao {
+  id         Int      @id @default(autoincrement())
+  cartao     String
+  validade   String
+  cvv        String
+  nomeCartao String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
 model Categoria {

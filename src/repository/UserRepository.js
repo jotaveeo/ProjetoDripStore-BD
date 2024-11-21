@@ -4,7 +4,7 @@ import cryptPassword from "../utils/bcrypt.js";
 class UserRepository {
   async create(body) {
     try {
-      const hashPassword = cryptPassword(body.password);
+      const hashPassword = await cryptPassword(body.password);
       const createResult = await prisma.users.create({
         data: {
           nome: body.nome,
@@ -24,7 +24,6 @@ class UserRepository {
     } catch (error) {
       return error;
     }
-    //    return await prisma.users.create()
   }
 
   async getAll() {
@@ -36,13 +35,14 @@ class UserRepository {
     }
   }
 
-  async getUnique(body) {
+  async getUnique(userId) {
     try {
       const data = await prisma.users.findUnique({
         where: {
-          email: body.email,
+          id: parseInt(userId, 10),
         },
       });
+      console.log("id do userrepository: ", data);
       return data;
     } catch (error) {
       return error;

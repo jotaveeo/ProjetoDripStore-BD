@@ -13,6 +13,7 @@ class LoginController {
       }
 
       const user = await LoginRepository.findByEmailOrName(login);
+      console.log(user);
 
       if (!user) {
         return response.status(400).json({ error: "Usuário não encontrado" });

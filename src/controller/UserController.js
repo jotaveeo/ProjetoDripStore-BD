@@ -1,4 +1,5 @@
 import UserRepository from "../repository/UserRepository.js";
+
 class UserController {
   async create(request, response) {
     try {
@@ -9,7 +10,8 @@ class UserController {
       return response.status(400).json(error);
     }
   }
-// pegar todos os usuários
+
+  // Pegar todos os usuários
   async getAll(request, response) {
     try {
       const users = await UserRepository.getAll();
@@ -18,14 +20,16 @@ class UserController {
       return response.status(400).json(error);
     }
   }
-// pegar um usuário específico
+
+  // Pegar um usuário específico pelo ID
   async getUnique(request, response) {
     try {
-      const getUser = await UserRepository.getUnique(request.body);
+      const userId = request.params.id;
+      const getUser = await UserRepository.getUnique(userId);
       if (!getUser) {
         return response.status(404).json("usuário não encontrado");
       }
-      return response.status(200).json(user);
+      return response.status(200).json(getUser);
     } catch (error) {
       return response.status(400).json(error);
     }
