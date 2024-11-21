@@ -3,15 +3,45 @@ import UserController from "../controller/UserController.js";
 import ProductController from "../controller/ProductController.js";
 import LoginController from "../controller/LoginController.js";
 import CompraController from "../controller/CompraController.js";
+import ProdutosImgController from "../controller/ProdutosImgController.js";
+import CatProdController from "../controller/CatProdController.js";
+import CategoriaController from "../controller/CategoriaController.js";
+import Validate from "../middleware/tokenValidade.js";
 
 const route = express.Router();
 
-route.get("/product/all", ProductController.getAll); // Rota para buscar todos os produtos
-route.post("/user/register", UserController.create); // Rota para criar um usuário(apenas recebe os dados)
-route.get("/user/all", UserController.getAll); // Rota para buscar todos os usuários
-route.get("/user/:id", UserController.getUnique); // Rota para buscar um usuário específico pelo ID
-route.post("/user/login", LoginController.login); // Rota para fazer login(apenas recebe os dados)
-route.post("/compra/finalizar", CompraController.finalizarCompra); // Rota para finalizar a compra(apenas recebe os dados)
-route.get("/compra/summary/:id", CompraController.getPurchaseSummary); // Rota para buscar o resumo da compra
+// Rotas para usuários
+route.post("/user/register", UserController.create);
+route.get("/user/all", UserController.getAll);
+route.get("/user/:id", UserController.getUnique);
+route.post("/user/login", LoginController.login);
+
+// Rotas para produtos
+route.get("/product/all", ProductController.getAll);
+route.post("/product/register", ProductController.create);
+route.get("/product/:id", ProductController.getUnique);
+
+// Rotas para imagens de produtos
+route.get("/produtosImg/all", ProdutosImgController.getAll);
+route.post("/produtosImg/register", ProdutosImgController.create);
+route.get("/produtosImg/:id", ProdutosImgController.getUnique);
+
+// Rotas para categorias de produtos
+route.get("/catProd/all", CatProdController.getAll);
+route.post("/catProd/register", CatProdController.create);
+route.get("/catProd/:id", CatProdController.getUnique);
+
+// Rotas para categorias
+route.get("/categoria/all", CategoriaController.getAll);
+route.post("/categoria/register", CategoriaController.create);
+route.get("/categoria/:id", CategoriaController.getUnique);
+
+// Rotas para compras
+route.post("/compra/finalizar", CompraController.finalizarCompra);
+route.get("/compra/summary/:id", CompraController.getPurchaseSummary);
+
+route.get("/painel/product", Validate, (request, response) => {
+  response.status(200).json("Você está autorizado para acessar essa rota");
+});
 
 export default route;

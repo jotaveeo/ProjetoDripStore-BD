@@ -47,11 +47,11 @@ CREATE TABLE `Produtos` (
     `enabled` BOOLEAN NULL,
     `nome` VARCHAR(191) NOT NULL,
     `slug` VARCHAR(191) NOT NULL,
-    `estoque` INTEGER NOT NULL,
+    `estoque` VARCHAR(191) NOT NULL,
     `descricao` VARCHAR(191) NOT NULL,
-    `preco` DOUBLE NOT NULL,
-    `preco_desconto` DOUBLE NOT NULL,
-    `desconto_off` DOUBLE NOT NULL DEFAULT 30,
+    `preco` VARCHAR(191) NOT NULL,
+    `preco_desconto` VARCHAR(191) NOT NULL,
+    `desconto_off` VARCHAR(191) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

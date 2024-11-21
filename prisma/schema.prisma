@@ -46,11 +46,11 @@ model Produtos {
   enabled        Boolean?
   nome           String
   slug           String
-  estoque        Int
+  estoque        String
   descricao      String
-  preco          Float
-  preco_desconto Float
-  desconto_off   Float        @default(30)
+  preco          String
+  preco_desconto String
+  desconto_off   String
   img            ProdutosImg?
   catprod        CatProd?
 }
