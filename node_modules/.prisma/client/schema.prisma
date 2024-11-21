@@ -34,13 +34,6 @@ model Cartao {
   updatedAt  DateTime @updatedAt
 }
 
-model Categoria {
-  id      Int      @id @default(autoincrement())
-  nome    String
-  slug    String
-  catprod CatProd?
-}
-
 model Produtos {
   id             Int          @id @default(autoincrement())
   enabled        Boolean?
@@ -67,5 +60,12 @@ model CatProd {
   product      Produtos  @relation(fields: [product_id], references: [id])
   product_id   Int       @unique
   categoria    Categoria @relation(fields: [categoria_id], references: [id])
-  categoria_id Int       @unique
+  categoria_id Int
+}
+
+model Categoria {
+  id      Int       @id @default(autoincrement())
+  nome    String
+  slug    String
+  catprod CatProd[]
 }

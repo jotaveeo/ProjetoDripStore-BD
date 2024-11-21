@@ -11,10 +11,10 @@ import Validate from "../middleware/tokenValidade.js";
 const route = express.Router();
 
 // Rotas para usuários
-route.post("/user/register", UserController.create);
-route.get("/user/all", UserController.getAll);
-route.get("/user/:id", UserController.getUnique);
-route.post("/user/login", LoginController.login);
+route.post("/user/register", UserController.create); // funcionando
+route.get("/user/all", UserController.getAll); // funcionando
+route.get("/user/:id", UserController.getUnique); // funcionando 
+route.post("/user/login", LoginController.login); // 
 
 // Rotas para produtos
 route.get("/product/all", ProductController.getAll);

@@ -33,15 +33,6 @@ CREATE TABLE `Cartao` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Categoria` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `nome` VARCHAR(191) NOT NULL,
-    `slug` VARCHAR(191) NOT NULL,
-
-    PRIMARY KEY (`id`)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- CreateTable
 CREATE TABLE `Produtos` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `enabled` BOOLEAN NULL,
@@ -73,7 +64,15 @@ CREATE TABLE `CatProd` (
     `categoria_id` INTEGER NOT NULL,
 
     UNIQUE INDEX `CatProd_product_id_key`(`product_id`),
-    UNIQUE INDEX `CatProd_categoria_id_key`(`categoria_id`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Categoria` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nome` VARCHAR(191) NOT NULL,
+    `slug` VARCHAR(191) NOT NULL,
+
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

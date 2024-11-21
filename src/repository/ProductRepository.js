@@ -50,7 +50,7 @@ class ProductRepository {
 
   async getById(id) {
     return await prisma.produtos.findUnique({
-      where: { id: id }, // Certifique-se de que o id está sendo passado corretamente
+      where: { id: id },
       include: {
         img: true,
         catprod: true,
