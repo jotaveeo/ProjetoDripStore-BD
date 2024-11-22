@@ -22,9 +22,9 @@ route.post("/product/register", ProductController.create); // funcionando
 route.get("/product/:id", ProductController.getUnique); // funcionando
 
 // Rotas para imagens de produtos
-route.get("/produtosImg/all", ProdutosImgController.getAll);
-route.post("/produtosImg/register", ProdutosImgController.create);
-route.get("/produtosImg/:id", ProdutosImgController.getUnique);
+route.get("/produtosImg/all", ProdutosImgController.getAll); // funcionando
+route.post("/produtosImg/register", ProdutosImgController.create); // funcionando
+route.get("/produtosImg/:id", ProdutosImgController.getUnique); // funcionando
 
 // Rotas para categorias de produtos
 route.get("/catProd/all", CatProdController.getAll);
