@@ -17,9 +17,9 @@ route.get("/user/:id", UserController.getUnique); // funcionando
 route.post("/user/login", LoginController.login); // funcionando
 
 // Rotas para produtos
-route.get("/product/all", ProductController.getAll);
-route.post("/product/register", ProductController.create);
-route.get("/product/:id", ProductController.getUnique);
+route.get("/product/all", ProductController.getAll); // funcionando
+route.post("/product/register", ProductController.create); // funcionando
+route.get("/product/:id", ProductController.getUnique); // funcionando
 
 // Rotas para imagens de produtos
 route.get("/produtosImg/all", ProdutosImgController.getAll);
