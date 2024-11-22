@@ -26,20 +26,21 @@ route.get("/produtosImg/all", ProdutosImgController.getAll); // funcionando
 route.post("/produtosImg/register", ProdutosImgController.create); // funcionando
 route.get("/produtosImg/:id", ProdutosImgController.getUnique); // funcionando
 
-// Rotas para categorias de produtos
-route.get("/catProd/all", CatProdController.getAll);
-route.post("/catProd/register", CatProdController.create);
-route.get("/catProd/:id", CatProdController.getUnique);
+// Rotas para categorias de produtos (relacionamento entre categoria e produto)
+route.get("/catProd/all", CatProdController.getAll); // funcionando(retorna categoria e o produto)
+route.post("/catProd/register", CatProdController.create); // funcionando
+route.get("/catProd/:id", CatProdController.getUnique); // funcionando
 
 // Rotas para categorias
-route.get("/categoria/all", CategoriaController.getAll);
-route.post("/categoria/register", CategoriaController.create);
-route.get("/categoria/:id", CategoriaController.getUnique);
+route.get("/categoria/all", CategoriaController.getAll); // funcionando
+route.post("/categoria/register", CategoriaController.create); // funcionando
+route.get("/categoria/:id", CategoriaController.getUnique);  // funcionando
 
-// Rotas para compras
+// Rotas para compras (incompleto)
 route.post("/compra/finalizar", CompraController.finalizarCompra);
 route.get("/compra/summary/:id", CompraController.getPurchaseSummary);
 
+// Rota protegida(teste)
 route.get("/painel/product", Validate, (request, response) => {
   response.status(200).json("Você está autorizado para acessar essa rota");
 });
