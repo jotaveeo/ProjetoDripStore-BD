@@ -14,7 +14,7 @@ const route = express.Router();
 route.post("/user/register", UserController.create); // funcionando
 route.get("/user/all", UserController.getAll); // funcionando
 route.get("/user/:id", UserController.getUnique); // funcionando 
-route.post("/user/login", LoginController.login); // 
+route.post("/user/login", LoginController.login); // funcionando
 
 // Rotas para produtos
 route.get("/product/all", ProductController.getAll);
