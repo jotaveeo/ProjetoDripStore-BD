@@ -19,11 +19,11 @@ class LoginController {
         return response.status(401).json({ error: "Senha inválida" });
       }
 
-      const token = generateToken(user.email);
-      return response.status(200).json({ message: "Login bem-sucedido", token });
+      const token = generateToken(user.email, user.id);
+      return response.status(200).json({ message: "Login bem-sucedido", token, userId: user.id });
     } catch (error) {
       console.error(error);
-      throw response.status(500).json({ error: "Erro ao fazer login" });
+      return response.status(500).json({ error: "Erro ao fazer login" });
     }
   }
 }

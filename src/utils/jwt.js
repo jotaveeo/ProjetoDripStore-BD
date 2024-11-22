@@ -1,11 +1,13 @@
 import jwt from "jsonwebtoken";
 
 const secret = process.env.SIGNATURE;
-const generateToken = (email) => {
+
+const generateToken = (email, userId) => {
   return jwt.sign(
     {
       role: "adm",
       email: email,
+      id: userId,
     },
     secret,
     { expiresIn: "1h" }
