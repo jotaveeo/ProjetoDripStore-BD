@@ -1,5 +1,4 @@
 import UserRepository from "../repository/UserRepository.js";
-import generateToken from "../utils/jwt.js";
 
 class UserController {
   async create(request, response) {
@@ -30,8 +29,7 @@ class UserController {
         return response.status(404).json({ error: "Usuário não encontrado" });
       }
 
-      const token = generateToken(request.body.email);
-      return response.status(200).json({ token: token, message: "Login efetuado e token gerado!" });
+      return response.status(200).json(getUser);
     } catch (error) {
       return response.status(400).json({ error: "Erro ao buscar usuário", details: error.message });
     }
